@@ -27,6 +27,7 @@
 
 #include <resolv.h>
 #include "libbb.h"
+#include <netdb.h>
 
 #ifdef ANDROID
 # include <netinet/in.h>
@@ -49,11 +50,12 @@
 static struct __res_state res_st;
 struct __res_state * __res_state(void)
 {
-	return &res_st;
+       return &res_st;
 }
-#endif
 
 #define EXT(res) ((&res)->_u._ext)
+
+# endif
 
 /*
  * I'm only implementing non-interactive mode;
