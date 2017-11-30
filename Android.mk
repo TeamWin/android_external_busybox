@@ -106,6 +106,7 @@ LOCAL_STATIC_LIBRARIES := libcutils libc libm libselinux
 busybox_autoconf_minimal_h := $(local-generated-sources-dir)/include/autoconf.h
 LOCAL_CFLAGS := $(BUSYBOX_CFLAGS) -include $(busybox_autoconf_minimal_h)
 LOCAL_C_INCLUDES := $(dir $(busybox_autoconf_minimal_h)) $(BUSYBOX_C_INCLUDES)
+LOCAL_CLANG := false
 LOCAL_GENERATED_SOURCES := $(busybox_autoconf_minimal_h)
 $(busybox_autoconf_minimal_h): $(BB_PATH)/busybox-minimal.config
 	@echo -e ${CL_YLW}"Prepare config for libbusybox"${CL_RST}
@@ -134,6 +135,7 @@ LOCAL_STATIC_LIBRARIES := libclearsilverregex libuclibcrpc libselinux
 busybox_autoconf_full_h := $(local-generated-sources-dir)/include/autoconf.h
 LOCAL_CFLAGS := $(BUSYBOX_CFLAGS) -include $(busybox_autoconf_full_h)
 LOCAL_C_INCLUDES := $(dir $(busybox_autoconf_full_h)) $(BUSYBOX_C_INCLUDES)
+LOCAL_CLANG := false
 LOCAL_GENERATED_SOURCES := $(busybox_autoconf_full_h)
 $(busybox_autoconf_full_h): $(BB_PATH)/busybox-full.config
 	@echo -e ${CL_YLW}"Prepare config for busybox binary"${CL_RST}
@@ -188,5 +190,6 @@ LOCAL_MODULE_PATH := $(PRODUCT_OUT)/utilities
 LOCAL_UNSTRIPPED_PATH := $(PRODUCT_OUT)/symbols/utilities
 LOCAL_CFLAGS := $(BUSYBOX_CFLAGS) -include $(busybox_autoconf_full_h)
 LOCAL_C_INCLUDES := $(dir $(busybox_autoconf_full_h)) $(BUSYBOX_C_INCLUDES)
+LOCAL_CLANG := false
 LOCAL_GENERATED_SOURCES := $(busybox_autoconf_full_h)
 include $(BUILD_EXECUTABLE)
