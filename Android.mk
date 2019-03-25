@@ -13,7 +13,7 @@ BIONIC_CFLAGS := \
 	$(if $(BIONIC_L),-DBIONIC_L) \
 	$(if $(BIONIC_N),-DBIONIC_N -D_GNU_SOURCE) \
 	$(if $(BIONIC_O),-DBIONIC_O) \
-	-Wno-unused-variable -Wno-error=sign-compare -Wno-unused-parameter
+	-Wno-unused-variable -Wno-error=sign-compare -Wno-unused-parameter -Wno-error=maybe-uninitialized
 
 # Make a static library for regex.
 include $(CLEAR_VARS)
